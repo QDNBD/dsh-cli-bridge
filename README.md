@@ -60,3 +60,5 @@ Zero runtime dependencies — Node built-ins plus host-injected `@deepseek-ai/ds
 ## License
 
 [MIT](LICENSE)
+
+- **发布状态与 Runbook**：见 [PUBLISHING.md](PUBLISHING.md)（仓库已公开：QDNBD/dsh-cli-bridge / @qdnbd/dsh-cli-bridge，剩余 npm publish 与收录 PR 两个手工步骤）
