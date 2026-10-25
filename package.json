@@ -1,6 +1,6 @@
 {
   "name": "@qdnbd/dsh-cli-bridge",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "type": "module",
   "description": "Expose locally installed agent CLIs (AtomCode, Claude Code, Codex, Gemini, ACP family and more) to DeepSeek Harness as tools, with a sidebar page to view, run and manage them. Windows only.",
   "keywords": [
