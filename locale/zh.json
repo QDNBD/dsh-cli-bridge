@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "本地 CLI 桥",
+    "description": "把本机已安装的 agent CLI（Claude Code、Codex、opencode）作为工具交给 dsh 调用，不需要 API Key。"
+  }
+}

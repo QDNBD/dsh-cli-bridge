@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Local CLI Bridge",
+    "description": "Runs locally installed agent CLIs (Claude Code, Codex, opencode) as a dsh tool, with no API key required."
+  }
+}

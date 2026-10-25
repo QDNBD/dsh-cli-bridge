@@ -1,0 +1,11 @@
+# awesome-dsh-plugin 目录条目 — 提交方式见
+# https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/blob/main/contributing.md
+# 把本文件内容粘贴为该仓库的 data/plugins/QDNBD__dsh-cli-bridge.yml 并提 PR
+# （GitHub 网页：Add file → Create new file，文件名路径粘贴进去，会自动 fork）。
+# 每 PR 最多 3 条；description 含 ": " 必须加引号；不要手写 npm: 字段（自动采集）。
+url: https://github.com/QDNBD/dsh-cli-bridge
+name: QDNBD/dsh-cli-bridge
+category: tools
+description:
+  en: "Exposes 30 locally installed agent CLIs (AtomCode, Claude Code, Codex, Gemini, the ACP family and more) to DeepSeek Harness: chat delegation via cli_agent, a sidebar task box with streaming output, and a visual manager for custom CLI adapters. Windows only."
+  zh: "把本机 30 种 AI CLI（AtomCode、Claude Code、Codex、Gemini、ACP 家族等）接入 DeepSeek Harness：对话 cli_agent 委派、侧栏任务框流式直跑、自定义 CLI 可视化管理（内置新手说明书与模型目录）。仅 Windows。"

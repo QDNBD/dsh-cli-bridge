@@ -1,0 +1,5 @@
+node_modules/
+*.tgz
+test/ui-harness/node_modules/
+test/ui-harness/package-lock.json
+.DS_Store

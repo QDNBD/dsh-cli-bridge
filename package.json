@@ -1,0 +1,66 @@
+{
+  "name": "@qdnbd/dsh-cli-bridge",
+  "version": "0.7.1",
+  "type": "module",
+  "description": "Expose locally installed agent CLIs (AtomCode, Claude Code, Codex, Gemini, ACP family and more) to DeepSeek Harness as tools, with a sidebar page to view, run and manage them. Windows only.",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cli",
+    "agent",
+    "atomcode",
+    "claude",
+    "codex",
+    "acp"
+  ],
+  "license": "MIT",
+  "author": "QDNBD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QDNBD/dsh-cli-bridge.git"
+  },
+  "homepage": "https://github.com/QDNBD/dsh-cli-bridge#readme",
+  "bugs": "https://github.com/QDNBD/dsh-cli-bridge/issues",
+  "os": [
+    "win32"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "registry.js",
+    "catalog.js",
+    "store.js",
+    "task-manager.js",
+    "cli-runner.js",
+    "parsers.js",
+    "atomcode.js",
+    "acp.js",
+    "panel.js",
+    "client/client.js",
+    "client/task.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    },
+    "compatibility": {
+      "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+    }
+  }
+}

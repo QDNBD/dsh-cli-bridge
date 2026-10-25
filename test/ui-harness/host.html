@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>cli-bridge panel test harness</title>
+<style>
+  body { margin: 0; background: #10141c; color: #e8eaf0; font-family: system-ui, sans-serif; }
+  #root { width: 340px; height: 640px; border: 1px solid #3a4150; overflow: hidden; }
+  #log { position: fixed; right: 8px; top: 8px; width: 360px; font: 11px/1.4 monospace; color: #9ad; max-height: 90vh; overflow: auto; }
+</style>
+<script src="/node_modules/react/umd/react.production.min.js"></script>
+<script src="/node_modules/react-dom/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+<div id="log">host log</div>
+<div id="root"></div>
+<script>
+// Minimal host shim: ModuleLoader + cordis-like ctx, mounting the 'main' slot.
+window.__events = []
+function logEvent(msg) {
+  window.__events.push(msg)
+  const el = document.getElementById('log')
+  el.textContent = window.__events.join('\n')
+}
+window.__ModuleLoader__ = {
+  load(def) {
+    logEvent('module loaded: ' + def.id)
+    const plugin = def.factory(function (name) {
+      if (name === 'react') return window.React
+      throw new Error('no require shim for ' + name)
+    })
+    const mounts = []
+    const ctx = {
+      slots: {
+        inject(slotName, cb) {
+          logEvent('slots.inject: ' + slotName)
+          const disposer = cb()
+          if (disposer && disposer.name === 'main') mounts.push(disposer)
+        },
+        register(spec, comp) {
+          logEvent('slots.register: ' + spec.name + ' key=' + spec.key)
+          return { ...spec, __comp: comp, __dispose: function () {} }
+        },
+      },
+    }
+    plugin.apply(ctx)
+    const main = mounts.find(function (m) { return m.name === 'main' })
+    if (!main) { logEvent('FATAL: no main panel registered'); return }
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(main.__comp())
+    logEvent('panel mounted')
+  },
+}
+</script>
+<script src="/client/client.js"></script>
+</body>
+</html>
